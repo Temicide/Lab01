@@ -10,12 +10,18 @@ public class UnitCard {
 	private String flavorText;
 
 	public UnitCard(String name, int bloodCost, int power, int health, String flavorText) {
+		if(name.isBlank()) name = "Creature";
+		if(bloodCost < 0) bloodCost = 0;
+		if(power < 0) power = 0;
+		if(health < 1) health = 1;
+
 		this.name = name;
 		this.bloodCost = bloodCost;
 		this.power = power;
 		this.health = health;
 		this.flavorText = flavorText;
 	}
+
 
 	public String getName() {
 		return name;
