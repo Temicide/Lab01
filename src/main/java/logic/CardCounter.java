@@ -8,6 +8,9 @@ public class CardCounter {
 	private int count;
 
 	public CardCounter(UnitCard card, int count) {
+
+		if (count < 0) count = 0;
+
 		this.card = card;
 		this.count = count;
 	}

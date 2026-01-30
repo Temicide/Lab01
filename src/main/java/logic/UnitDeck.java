@@ -9,6 +9,9 @@ public class UnitDeck {
     private ArrayList<CardCounter> cardsInDeck;
 
     public UnitDeck(String deckName) {
+
+        if(deckName.isBlank()) deckName = "Untitled Deck";
+
         this.deckName = deckName;
         this.cardsInDeck = new ArrayList<CardCounter>();
     }
@@ -20,11 +23,12 @@ public class UnitDeck {
         boolean foundCard = false;
         for (CardCounter card : cardsInDeck) {
             if (newCard == card.getCard()) {
-                card.setCount(card.getCount() + 1);
+                card.setCount(card.getCount() + count);
                 foundCard = true;
                 break;
             }
         }
+
         if (!foundCard) cardsInDeck.add(tempCardCounter);
 
     }
